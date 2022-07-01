@@ -7,10 +7,13 @@ import Register from './Login/Register';
 import AddTodo from './components/AddTodo';
 import Todos from './components/Todos';
 import ComTask from './components/ComTask';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 function App() {
   return (
     <>
+    <Header/>
     <Routes>
      <Route path ="/" element={<Home></Home>}></Route>
      <Route path = "/todos" element={<Todos/>}></Route>
@@ -19,6 +22,7 @@ function App() {
      <Route path="login" element={<Login/>}></Route>
      <Route path="register" element={<Register/>}></Route>
     </Routes>
+    <Footer/>
     </>
   );
 }

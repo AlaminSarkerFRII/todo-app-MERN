@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const Todos = () => {
+const Todos = ({date}) => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -11,6 +11,26 @@ const Todos = () => {
     });
   }, []);
 
+   // completed successfully
+
+    // =========Add to Complete Task========
+	const handleComplete = (id) => {
+		// Get Selected Item
+		const completeItem = todos.find(item=>item._id === id)
+		const complete = {...completeItem};
+		console.log({...complete});
+        axios.post("/complete",{
+            todos,isComplete:false,
+            date ,
+        })
+        .then(res=>{
+            console.log(res.data)
+        })
+        console.log('submit');
+	
+	};
+
+
   return (
     <div className="">
         {todos.map(todo=>(
@@ -18,10 +38,9 @@ const Todos = () => {
             <div class="card-body flex flex-row justify-center items-center ">
                 <h2>{ todo.todo}</h2>
                 <p>{todo.date}</p>
-                <label htmlFor="complete">
-                    
+                <label htmlFor="complete"> 
                 </label>
-                <input id="complete" type="radio" name="radio-1" class="radio" checked />
+                <input  onClick={()=>{handleComplete(todo._id)}} id="complete" type="radio" name="radio-1" class="radio" checked />
             </div>
           </div>
 
