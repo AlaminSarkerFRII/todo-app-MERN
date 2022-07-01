@@ -22,18 +22,16 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-  // update profile
-  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
   // use token when user register or login
   const navigate = useNavigate();
 
   let SignUpError;
 
-  if (error || gError || updateError) {
+  if (error || gError) {
     SignUpError = (
       <p className="text-red-200">
-        {error?.message || gError?.message || updateError?.message}
+        {error?.message || gError?.message}
       </p>
     );
   }
@@ -50,7 +48,6 @@ const Register = () => {
   const onSubmit = async (data) => {
     // console.log(data);
     await createUserWithEmailAndPassword(data.email, data.password);
-    await updateProfile({ displayName: data.name });
   };
   return (
     <div className="flex h-screen justify-center items-center my-16">

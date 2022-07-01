@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import auth from "../Firebase.init";
 import {
+  useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -10,10 +11,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
     const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   // google sign in
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   // sign in with email password
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
      // form set
@@ -22,6 +25,12 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user,navigate]);
 
     let signInError;
 

@@ -19,7 +19,7 @@ const DatePicker = ({date,setDate}) => {
           <span className="text-orange-500 px-3 font-bold">{date}</span>{" "}
         </h2>
         <input
-          className="input"
+          className="input max-w-md"
           type="date"
           onChange={(e) => setDate(e.target.value)}
         />

@@ -6,6 +6,7 @@ import Login from './Login/Login';
 import Register from './Login/Register';
 import AddTodo from './components/AddTodo';
 import Todos from './components/Todos';
+import ComTask from './components/ComTask';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
      <Route path ="/" element={<Home></Home>}></Route>
      <Route path = "/todos" element={<Todos/>}></Route>
      <Route path="/addTodo" element={<AddTodo/>}></Route>
+     <Route path="/task" element={<ComTask/>}></Route>
      <Route path="login" element={<Login/>}></Route>
      <Route path="register" element={<Register/>}></Route>
     </Routes>
