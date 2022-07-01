@@ -1,15 +1,25 @@
-import React from 'react';
-import Header from '../Header/Header';
+import React, { useState } from "react";
+import Header from "../Header/Header";
+import AddTodo from "./AddTodo";
+import DatePicker from "./DatePicker";
+import Todos from "./Todos";
 
 const Home = () => {
-    return (
+  const [date, setDate] = useState("");
+  return (
+    <div>
+      <Header />
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1">
         <div>
-           <Header/>
-
-
-
+          <DatePicker date={date} setDate={setDate} />
+          {!!date && <AddTodo date={date} />}
         </div>
-    );
+        <div>
+          <Todos />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Home;

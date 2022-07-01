@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -16,7 +17,7 @@ const Header = () => {
               <a>Completed Task</a>
             </li>
             <li>
-              <a>Todo</a>
+              <Link to="/todos">Todo</Link>
             </li>
             <li>
               <a>Calender</a>
