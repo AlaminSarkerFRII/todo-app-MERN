@@ -16,12 +16,12 @@ const Header = () => {
 
   return (
     <div>
-      <div class="navbar bg-base-100 shadow-xl">
+      <div class="navbar bg-base-100 shadow-xl grid sm:grid-cols-3">
         <div class="flex-1">
-          <a class="btn btn-ghost normal-case text-xl mr-4">Todo App</a>
+          <a class="btn btn-ghost normal-case text-xl">Todo App</a>
         </div>
         <div class="flex-none">
-          <ul class="menu menu-horizontal p-0 text-xl">
+          <ul class="menu menu-horizontal p-0 text-xl grid sm:grid-cols-3">
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
@@ -38,7 +38,7 @@ const Header = () => {
         )}
       </li>
             <li>
-              <NavLink to="/task">Completed Task</NavLink>
+              <NavLink to="/task">Completed</NavLink>
             </li>
             <li>
               <NavLink to="/todos">Todo</NavLink>

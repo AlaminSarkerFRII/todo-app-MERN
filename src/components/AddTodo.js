@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 const AddTodo = ({date}) => {
     const [todo,setTodo] = useState("")
-    const [todos,setTodos] = useState("")
     const handleSubmit = (e)=>{
         e.preventDefault();
         if(!todo.length){
@@ -20,27 +19,7 @@ const AddTodo = ({date}) => {
     }
 
 
-    // completed successfully
-
-    // =========Add to Complete Task========
-	const handleComplete = (id) => {
-		// Get Selected Item
-		const completeItem = todos.find(item=>item._id === id)
-		const complete = {...completeItem};
-		console.log({...complete});
-        axios.post("/complete",{
-            todos,isComplete:false,
-            date ,
-        })
-        .then(res=>{
-            console.log(res.data)
-        })
-        console.log('submit');
-	
-	};
-
-
-
+   
 
     return (
         <div className='px-20 py-28'>
