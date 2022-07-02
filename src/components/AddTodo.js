@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const AddTodo = ({date}) => {
+const AddTodo = ({date,loading,setLoading}) => {
     const [todo,setTodo] = useState("")
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -10,10 +10,12 @@ const AddTodo = ({date}) => {
         }
         axios.post("/todos",{
             todo,isComplete:false,
-            date ,
+            date
         })
         .then(res=>{
             console.log(res.data)
+            setLoading(true)
+            setTodo("");
         })
         console.log('submit');
     }

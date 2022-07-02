@@ -21,7 +21,7 @@ const Header = () => {
           <a class="btn btn-ghost normal-case text-xl">Todo App</a>
         </div>
         <div class="flex-none">
-          <ul class="menu menu-horizontal p-0 text-xl grid sm:grid-cols-3">
+          <ul class="menu menu-horizontal p-0 text-xl">
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
